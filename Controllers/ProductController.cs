@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using tutorial_api_2.Models;
 using tutorial_api_2.Services;
@@ -7,11 +7,12 @@ namespace tutorial_api_2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Sample1Controller : ControllerBase
+    [Authorize]
+    public class ProductController : BaseController
     {
         private IProductService _productService;
 
-        public Sample1Controller(IProductService productService)
+        public ProductController(IProductService productService)
         {
             _productService = productService;
         }
